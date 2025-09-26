@@ -201,6 +201,6 @@ option('sqlite', type: 'feature', description: 'SQLite database support (for sti
 option('zlib', type: 'feature', description: 'zlib support (for database compression)')
 
 option('zeroconf', type: 'combo',
-       choices: ['auto', 'avahi', 'bonjour', 'disabled'],
+       choices: ['auto', 'avahi', 'bonjour', 'resolved', 'disabled'],
        value: 'auto',
        description: 'Zeroconf support')

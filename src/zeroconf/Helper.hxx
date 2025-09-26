@@ -11,6 +11,7 @@
 class EventLoop;
 class AvahiHelper;
 class BonjourHelper;
+class ResolvedHelper;
 
 class ZeroconfHelper final {
 #ifdef HAVE_AVAHI
@@ -19,6 +20,10 @@ class ZeroconfHelper final {
 
 #ifdef HAVE_BONJOUR
 	std::unique_ptr<BonjourHelper> helper;
+#endif
+
+#ifdef HAVE_RESOLVED
+	std::unique_ptr<ResolvedHelper> helper;
 #endif
 
 public:

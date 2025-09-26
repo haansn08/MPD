@@ -17,6 +17,10 @@
 #include "Bonjour.hxx"
 #endif
 
+#ifdef HAVE_RESOLVED
+#include "Resolved.hxx"
+#endif
+
 #include <climits>
 
 #include <string.h>

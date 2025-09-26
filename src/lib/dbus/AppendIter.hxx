@@ -42,6 +42,14 @@ public:
 		return AppendBasic(DBUS_TYPE_STRING, &value);
 	}
 
+	AppendMessageIter &Append(const int16_t &value) {
+		return AppendBasic(DBUS_TYPE_INT16, &value);
+	}
+
+	AppendMessageIter &Append(const uint16_t &value) {
+		return AppendBasic(DBUS_TYPE_UINT16, &value);
+	}
+
 	AppendMessageIter &Append(const uint32_t &value) {
 		return AppendBasic(DBUS_TYPE_UINT32, &value);
 	}
@@ -56,6 +64,10 @@ public:
 
 	AppendMessageIter &Append(const int64_t &value) {
 		return AppendBasic(DBUS_TYPE_INT64, &value);
+	}
+
+	AppendMessageIter &AppendObjectPath(const char *const&value) {
+		return AppendBasic(DBUS_TYPE_OBJECT_PATH, &value);
 	}
 
 	AppendMessageIter &AppendFixedArray(int element_type,

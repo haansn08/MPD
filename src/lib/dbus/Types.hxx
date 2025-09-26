@@ -39,6 +39,8 @@ struct TypeTraits<dbus_uint64_t> : BasicTypeTraits<DBUS_TYPE_UINT64> {
 
 using BooleanTypeTraits = BasicTypeTraits<DBUS_TYPE_BOOLEAN>;
 
+using ByteTypeTraits = BasicTypeTraits<DBUS_TYPE_BYTE>;
+
 template<typename T>
 struct ArrayTypeTraits {
 	using ContainedTraits = T;

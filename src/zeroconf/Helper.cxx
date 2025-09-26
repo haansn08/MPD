@@ -13,6 +13,11 @@
 #define CreateHelper BonjourInit
 #endif
 
+#ifdef HAVE_RESOLVED
+#include "Resolved.hxx"
+#define CreateHelper ResolvedInit
+#endif
+
 ZeroconfHelper::ZeroconfHelper(EventLoop &event_loop, const char *name,
 			       const char *service_type, unsigned port)
 	:helper(CreateHelper(event_loop, name, service_type, port)) {}

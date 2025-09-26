@@ -48,7 +48,7 @@ if zeroconf_option == 'bonjour'
     link_with: zeroconf,
     dependencies: bonjour_deps,
   )
-else
+elif zeroconf_option == 'avahi'
   subdir('avahi')
 
   if not avahi_dep.found()
@@ -68,6 +68,23 @@ else
       dbus_dep,
       time_dep,
       log_dep,
+    ],
+  )
+
+  zeroconf_dep = declare_dependency(
+    link_with: zeroconf,
+  )
+else
+  conf.set('HAVE_RESOLVED', true)
+
+  zeroconf = static_library(
+    'zeroconf_resolved',
+    'Glue.cxx',
+    'Helper.cxx',
+    'Resolved.cxx',
+    include_directories: inc,
+    dependencies: [
+    	dbus_dep
     ],
   )
 
